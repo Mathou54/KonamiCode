@@ -3,6 +3,7 @@ import {NgModule} from '@angular/core';
 
 
 import {AppComponent} from './app.component';
+import {KonamiCodeModule} from './modules/konami-code/konami-code.module';
 
 
 @NgModule({
@@ -10,7 +11,8 @@ import {AppComponent} from './app.component';
     AppComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    KonamiCodeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
