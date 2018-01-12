@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, HostListener, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-konami-code',
@@ -7,13 +7,48 @@ import {Component, OnInit} from '@angular/core';
 })
 export class KonamiCodeComponent implements OnInit {
 
+  private KONAMI_CODE = [
+    'ArrowUp',
+    'ArrowUp',
+    'ArrowDown',
+    'ArrowDown',
+    'ArrowLeft',
+    'ArrowRight',
+    'ArrowLeft',
+    'ArrowRight',
+    'b',
+    'a'
+  ];
+
+  private CLOSE_CODE = 'Escape';
+
+  private codeIndex: number;
+
   public isCodeActivated: boolean;
 
   constructor() {
   }
 
   ngOnInit() {
+    this.resetCode();
+  }
+
+  @HostListener('document:keydown', ['$event'])
+  handleKeyboardEvent(event: KeyboardEvent) {
+    if (this.codeIndex < this.KONAMI_CODE.length && event.key === this.KONAMI_CODE[this.codeIndex]) {
+      this.codeIndex++;
+    } else {
+      this.resetCode();
+    }
+
+    if (this.codeIndex === this.KONAMI_CODE.length) {
+      this.isCodeActivated = true;
+    }
+  }
+
+  private resetCode(): void {
     this.isCodeActivated = false;
+    this.codeIndex = 0;
   }
 
 }
