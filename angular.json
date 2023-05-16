@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "KonamiCode2": {
+    "KonamiCode": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/konami-code2",
+            "outputPath": "dist/konami-code",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -65,10 +65,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "KonamiCode2:build:production"
+              "browserTarget": "KonamiCode:build:production"
             },
             "development": {
-              "browserTarget": "KonamiCode2:build:development"
+              "browserTarget": "KonamiCode:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -76,7 +76,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "KonamiCode2:build"
+            "browserTarget": "KonamiCode:build"
           }
         },
         "test": {
@@ -107,7 +107,7 @@
               "src/**/*.html"
             ]
           }
-        },
+        }
       }
     }
   },

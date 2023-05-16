@@ -6,15 +6,18 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build --base-href \"/KonamiCode/\"",
-    "build:win": "npm run build && copy \"docs\\index.html\" \"docs\\404.html\"",
+    "build:win": "npm run build -- --output-path \"docs\" && copy \"docs\\index.html\" \"docs\\404.html\"",
     "watch": "ng build --watch --configuration development",
     "lint": "ng lint",
     "test": "ng test --no-watch --no-progress",
     "test:watch": "ng test",
     "packagr": "ng-packagr -p ng-package.json",
-    "canICommit": "npm run lint && npm run build && npm run test && npm run packagr && npm run ng -- make-this-awesome"
+    "canICommit": "npm run lint && npm run build && npm run test && npm run build && npm run packagr && npm run build:win && npm run ng -- make-this-awesome"
   },
   "private": true,
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
   "peerDependencies": {
     "@angular/animations": "^16.0.0",
     "@angular/common": "^16.0.0",
@@ -25,7 +28,6 @@
     "@angular/platform-browser-dynamic": "^16.0.0",
     "@angular/router": "^16.0.0",
     "rxjs": "~7.8.0",
-    "tslib": "^2.3.0",
     "zone.js": "~0.13.0"
   },
   "devDependencies": {
