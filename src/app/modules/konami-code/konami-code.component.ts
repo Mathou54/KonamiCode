@@ -22,12 +22,9 @@ export class KonamiCodeComponent implements OnInit {
 
   private CLOSE_CODE = 'Escape';
 
-  private codeIndex: number;
+  private codeIndex = 0;
 
-  public isCodeActivated: boolean;
-
-  constructor() {
-  }
+  public isCodeActivated = false;
 
   ngOnInit() {
     this.resetCode();
