@@ -8,6 +8,7 @@
     "build": "ng build --base-href \"/KonamiCode/\"",
     "build:no-base-href": "ng build",
     "build:win": "npm run build -- --output-path \"docs\" && copy \"docs\\index.html\" \"docs\\404.html\"",
+    "build:unix": "npm run build -- --output-path \"docs\" && cp \"docs/index.html\" \"docs/404.html\"",
     "build:win:no-base-href": "npm run build:no-base-href -- --output-path \"docs\" && copy \"docs\\index.html\" \"docs\\404.html\"",
     "watch": "ng build --watch --configuration development",
     "lint": "ng lint",
