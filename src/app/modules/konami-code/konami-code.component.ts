@@ -7,7 +7,7 @@ import {Component, HostListener, OnInit} from '@angular/core';
 })
 export class KonamiCodeComponent implements OnInit {
 
-  private KONAMI_CODE = [
+  public static readonly KONAMI_CODE = [
     'ArrowUp',
     'ArrowUp',
     'ArrowDown',
@@ -20,8 +20,6 @@ export class KonamiCodeComponent implements OnInit {
     'a'
   ];
 
-  private CLOSE_CODE = 'Escape';
-
   private codeIndex = 0;
 
   public isCodeActivated = false;
@@ -32,13 +30,13 @@ export class KonamiCodeComponent implements OnInit {
 
   @HostListener('document:keydown', ['$event'])
   handleKeyboardEvent(event: KeyboardEvent) {
-    if (this.codeIndex < this.KONAMI_CODE.length && event.key === this.KONAMI_CODE[this.codeIndex]) {
+    if (this.codeIndex < KonamiCodeComponent.KONAMI_CODE.length && event.key.toLowerCase() === KonamiCodeComponent.KONAMI_CODE[this.codeIndex].toLowerCase()) {
       this.codeIndex++;
     } else {
       this.resetCode();
     }
 
-    if (this.codeIndex === this.KONAMI_CODE.length) {
+    if (this.codeIndex === KonamiCodeComponent.KONAMI_CODE.length) {
       this.isCodeActivated = true;
     }
   }
